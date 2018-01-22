@@ -1,0 +1,36 @@
+hello world
+<div id='atguigu'></div>
+<button id="get">GET</button>
+<button id="post">POST</button>
+<button id="put">PUT</button>
+<button id="delete">DELETE</button>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+$('#get').click(function() {
+  $.ajax({
+    url: '/books/',
+    type: 'get',
+    success: function(data) {
+      console.log(data);
+      var newDiv = document.createElement("div"); 
+      for (var i = 0; i < data.length; i++) {
+        var newContent = document.createTextNode("code: " + data[i].code + "id: " + data[i].id + ' | ');
+        $("#atguigu").append(newContent);
+      }
+    }
+  })
+})
+$("#post").click(function() {
+  var data = {
+    code: 'hahahahaha'
+  };
+  $.ajax({
+    url: '/books/',
+    type: 'post',
+    data: JSON.stringify(data),
+    success: function(data) {
+      console.log(data);
+    }
+  })
+})
+</script>

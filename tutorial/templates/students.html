@@ -1,0 +1,26 @@
+<div id="students"></div>
+<button id="get">get</button>
+<button id="post">post</button>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+$("#get").click(function() {
+  $.ajax({
+    url: '/students/',
+    type: 'get',
+    success: function(data) {
+      console.log(data);
+    }
+  })
+})
+$("#post").click(function() {
+  var data = {name: 'hahahahahahaha'}
+  $.ajax({
+    url: '/students/',
+    type: 'post',
+    data: data,
+    success: function(data) {
+      console.log(data);
+    }
+  })
+})
+</script>
