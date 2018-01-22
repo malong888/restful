@@ -1,0 +1,15 @@
+hello world
+<div id="guigu"></div>
+<button id="get">get</button>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+$("#get").click(function() {
+  $.ajax({
+    url: '/books/',
+    type: 'get',
+    success: function(data) {
+      console.log(data);
+    }
+  })
+})
+</script>
